@@ -1,0 +1,64 @@
+<odoo>
+   <data>
+     <!-- model.name tree view -->
+     <record id="library_list1" model="ir.ui.view">
+       <field name="name">library list</field>
+       <field name="model">library.data</field>
+       <field name="arch" type="xml">
+         <tree>
+           <field name="name"/>
+           <field name="date"/>
+           
+           
+         </tree>
+       </field>
+     </record>
+
+     <!-- model.name form view -->
+     <record id="library_data_view_form" model="ir.ui.view">
+       <field name="name">library.data.view.form</field>
+       <field name="model">library.data</field>
+       <field name="arch" type="xml">
+         <form string="">
+         <header>
+         <button name="my_demo" string="Confirm" type="object"  />
+         <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+         
+         
+         
+         </header>
+           <sheet>
+             <group>
+              <field name="name" />
+              <field name="date"  readonly="1"/>
+         
+              
+               
+             </group>
+           </sheet>
+         </form>
+       </field>
+     </record>
+
+      <record model="ir.actions.act_window" id="library_action_window">
+        <field name="name">Book Details</field>
+        <field name="res_model">library.data</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+
+       <menuitem name="Library details" id="library_menu_root"/>
+
+       <!-- menu categories -->
+
+      <menuitem name="New book" id="library_menu_1" parent="library_menu_root"/>
+    
+
+    <!-- actions -->
+    
+
+      <menuitem name="Book renewal" id="library_menu_1_list" parent="library_menu_1"
+              action="library_action_window"/>
+                  
+    </data>
+</odoo>
